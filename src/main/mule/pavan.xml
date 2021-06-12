@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="d614e021-124e-4184-a11b-43a55614dac7" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="pavanFlow" doc:id="65dbd9e9-67fc-4151-bb66-ae8ab2a39893" >
+		<http:listener doc:name="Listener" doc:id="c741f0fd-ff01-4a50-9dfd-e04ce0af0030" config-ref="HTTP_Listener_config" path="pavan"/>
+		<set-payload value="pavan kalyan" doc:name="Set Payload" doc:id="059a006d-67fe-44ed-984a-6e42a483a255" />
+		<logger level="INFO" doc:name="Logger" doc:id="4e9070c5-9d11-423c-9f8d-41a004ddff51" message="#[payload]"/>
+	</flow>
+</mule>
